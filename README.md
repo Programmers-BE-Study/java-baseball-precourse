@@ -128,3 +128,18 @@
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
+
+
+
+---
+## 구현할 기능
+- 컴퓨터 랜덤 숫자 생성
+  - 중복되지 않게 생성
+- 사용자 입력값 받기
+  - 중복되는 값을 입력하는 것도 허용하자.
+  - 길이는 3으로 고정
+  - 형식에 맞지 않을 시, Exception 발생
+- 입력값을 리스트로 변환
+- 사용자의 입력값과 컴퓨터의 숫자를 비교하여 결과 출력
+- 종료 여부를 판단(1 or 2)
+  - 형식에 맞지 않을 시, Exception 발생
