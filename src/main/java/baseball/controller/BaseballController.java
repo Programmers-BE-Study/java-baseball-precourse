@@ -29,7 +29,7 @@ public class BaseballController {
         Result result;
         do {
             String numbers = InputView.printNumbersInput();
-            Player player = baseballService.createPlayerNumbers(numbers);
+            Player player = baseballService.getPlayer(numbers);
             result = baseballService.playOneRound(computer, player);
             OutputView.printResult(result);
         } while(result.getStrikeCount() != Numbers.LIST_SIZE.getNumber());

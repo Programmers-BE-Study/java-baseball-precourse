@@ -22,13 +22,13 @@ public class BaseballService {
         return Objects.equals(Command.getCommand(validator.validate(input)), Command.EXIT);
     }
 
-    public Player createPlayerNumbers(String numbers) {
+    public Player getPlayer(String numbers) {
         Validator validator = Validators.getValidator(ValidatorKey.PLAYER_INPUT);
-        List<Integer> playerNumbers = createList(validator.validate(numbers));
+        List<Integer> playerNumbers = createPlayerNumbers(validator.validate(numbers));
         return new Player(playerNumbers);
     }
 
-    private List<Integer> createList(String validate) {
+    private List<Integer> createPlayerNumbers(String validate) {
         return Arrays.stream(validate.split(""))
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());
