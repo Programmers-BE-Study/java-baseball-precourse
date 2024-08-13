@@ -20,4 +20,12 @@ public class Computer {
     public void createAnswer() {
         computerNumbers = numberGenerator.generate();
     }
+
+    public boolean isStrike(Integer number, int index) {
+        return computerNumbers.get(index).equals(number);
+    }
+
+    public boolean isBall(Integer number, int index) {
+        return computerNumbers.contains(number) && !computerNumbers.get(index).equals(number);
+    }
 }

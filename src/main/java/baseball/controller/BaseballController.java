@@ -1,9 +1,12 @@
 package baseball.controller;
 
 import baseball.model.Computer;
+import baseball.model.Player;
+import baseball.model.Result;
 import baseball.service.BaseballService;
-import baseball.utils.constant.Command;
+import baseball.utils.constant.Numbers;
 import baseball.view.InputView;
+import baseball.view.OutputView;
 
 public class BaseballController {
 
@@ -16,18 +19,21 @@ public class BaseballController {
     }
 
     public void start() throws IllegalArgumentException{
-        while(true) {
+        do {
             play();
-            if(isExit()) {
-                break;
-            }
-        }
+        } while(!isExit());
     }
 
     private void play() throws IllegalArgumentException{
-        //컴퓨터의 숫자 생성
         computer.createAnswer();
-        String numbers = InputView.printNumbersInput();
+        Result result;
+        do {
+            String numbers = InputView.printNumbersInput();
+            Player player = baseballService.createPlayerNumbers(numbers);
+            result = baseballService.playOneRound(computer, player);
+            OutputView.printResult(result);
+        } while(result.getStrikeCount() != Numbers.LIST_SIZE.getNumber());
+        OutputView.printEndGame();
     }
 
     private boolean isExit() {
