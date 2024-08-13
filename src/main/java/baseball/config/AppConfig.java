@@ -4,15 +4,10 @@ import baseball.controller.BaseballController;
 import baseball.model.Computer;
 import baseball.service.BaseballService;
 import baseball.utils.generate.RandomNumberGenerator;
-import baseball.utils.valid.Validator;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class AppConfig {
 
-    public static BaseballController getInstance() {
+    public static BaseballController getController() {
         return Singleton.baseballController;
     }
 

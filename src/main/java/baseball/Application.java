@@ -5,7 +5,7 @@ import baseball.controller.BaseballController;
 
 public class Application {
     public static void main(String[] args) {
-        BaseballController controller = AppConfig.getInstance();
+        BaseballController controller = AppConfig.getController();
         controller.start();
     }
 }
