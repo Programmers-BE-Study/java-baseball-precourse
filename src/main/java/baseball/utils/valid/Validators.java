@@ -22,6 +22,7 @@ public class Validators {
         private static Map<ValidatorKey, Validator> createValidatorMap() {
             Map<ValidatorKey, Validator> validatorMap = new HashMap<>();
             validatorMap.put(ValidatorKey.COMMAND, new CommandValidator());
+            validatorMap.put(ValidatorKey.PLAYER_INPUT, new PlayerInputValidator());
             return Collections.unmodifiableMap(validatorMap); // 불변 맵으로 변환
         }
     }
