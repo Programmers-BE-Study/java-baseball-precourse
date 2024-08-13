@@ -7,10 +7,14 @@ public class CommandValidator implements Validator {
 
     @Override
     public String validate(String input) {
+        isRetryOrExit(input).finish();
+        return input;
+    }
+
+    private CommandValidator isRetryOrExit(String input) {
         if(!input.equals(Command.RESTART.toString()) && !input.equals(Command.EXIT.toString())) {
             throw new IllegalArgumentException(Messages.RESTART_OR_EXIT_ERROR_MSG.toString());
         }
-
-        return input;
+        return this;
     }
 }
