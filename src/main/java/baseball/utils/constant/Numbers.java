@@ -4,7 +4,7 @@ public enum Numbers {
 
     ZERO(0),
     MIN(1),
-    LIST_SIZE(3),
+    NUMBERS_SIZE(3),
     MAX(9);
 
     private final int number;

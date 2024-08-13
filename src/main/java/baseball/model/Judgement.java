@@ -16,7 +16,7 @@ public enum Judgement {
     }
 
     public static Judgement judge(boolean isStrike, boolean isBall) {
-        if(isStrike) {
+        if (isStrike) {
             return STRIKE;
         }
 

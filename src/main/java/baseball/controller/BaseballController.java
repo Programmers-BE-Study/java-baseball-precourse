@@ -32,7 +32,7 @@ public class BaseballController {
             Player player = baseballService.getPlayer(numbers);
             result = baseballService.playOneRound(computer, player);
             OutputView.printResult(result);
-        } while(result.getStrikeCount() != Numbers.LIST_SIZE.getNumber());
+        } while(result.getStrikeCount() != Numbers.NUMBERS_SIZE.getNumber());
         OutputView.printEndGame();
     }
 

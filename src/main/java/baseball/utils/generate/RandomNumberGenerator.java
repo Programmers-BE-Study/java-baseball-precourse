@@ -11,7 +11,7 @@ public class RandomNumberGenerator implements Generator {
     public List<Integer> generate() {
         ArrayList<Integer> numbers = new ArrayList<>();
 
-        while(numbers.size() < Numbers.LIST_SIZE.getNumber()) {
+        while(numbers.size() < Numbers.NUMBERS_SIZE.getNumber()) {
             int number = Randoms.pickNumberInRange(Numbers.MIN.getNumber(), Numbers.MAX.getNumber());
             if(!numbers.contains(number)) {
                 numbers.add(number);

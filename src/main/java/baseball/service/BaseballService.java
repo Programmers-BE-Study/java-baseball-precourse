@@ -37,7 +37,7 @@ public class BaseballService {
     public Result playOneRound(Computer computer, Player player) {
         Result result = new Result();
         List<Integer> playerNumbers = player.getNumbers();
-        for (int index = Numbers.ZERO.getNumber(); index < Numbers.LIST_SIZE.getNumber(); index++) {
+        for (int index = Numbers.ZERO.getNumber(); index < Numbers.NUMBERS_SIZE.getNumber(); index++) {
             boolean isStrike = computer.isStrike(playerNumbers.get(index), index);
             boolean isBall = computer.isBall(playerNumbers.get(index), index);
             Judgement judgement = Judgement.judge(isStrike, isBall);
