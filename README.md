@@ -128,3 +128,39 @@
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
+
+***
+# 정리한 기능 목록
+## 프로그램 로직
+1. 문제를 생성한다
+2. 답을 입력받는다.
+3. 답을 판단한다. <br>
+4-1. 오답일 시, 2로 돌아간다. <br>
+4-2. 정답일 시, 게임 재시작 여부를 입력받는다.
+
+## 필요 기능
+** 게임 진행 객체 : GameManager 클래스 **
+
+문제 생성 기능 (ProblemProvider 클래스)
+- 3자리의 수 생성 및 저장 (questionerAnswer 변수)
+
+제출 답 요구 기능 (AnswerRequester 클래스, requestAnswer 메서드)
+- 답 요구 문구 출력하기
+- 답 입력받기 (userAnswer 변수)
+
+제출 답 처리기능 (AnswerProcessor 클래스, judge 메서드)
+- 볼 or 스트라이크 (ANSWER_RESULT_BALL, ANSWER_RESULT_STRIKE 상수)
+- 낫싱 (ANSWER_RESULT_NOTHING)
+- 정답 (ANSWER_RESULT_CORRECT)
+- 답 판단 결과 출력하기
+
+정답 시 처리 기능 (GameManager 클래스에서 메서드로 구현)
+- 정답 시 정답 문구 출력하기
+- 게임 재시작 여부 질문 출력하기
+- 게임 재시작 여부 입력받기
+- 게임 진행 메서드 실행하기
+
+*** 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
+
+	
+
