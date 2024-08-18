@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main_baseball_ver1 {
     // 함수로 빼기
     //depth 2 이하
     // 추가 작업해야 될 것 : 3 자리 중복 제거 , 정답 맞춘 후 다시 시작
@@ -32,7 +32,7 @@ public class Main {
         List<Integer> ansList = new ArrayList<>();
         int temp = num % 100;
         ansList.add(num / 100);
-        ansList.add(num / 10);
+        ansList.add(temp / 10);
         temp = num % 10;
         ansList.add(temp);
         return ansList;
@@ -70,9 +70,10 @@ public class Main {
         for(int i = 0; i < 3; i++){
             if(ansComList.get(i).equals(ansUserList.get(i))){
                 ballCnt++;
+                System.out.println("ballCnt: " + ballCnt);
             }
             else{
-                strikeCnt += checkStrike(ansComList, ansUserList, strikeCnt,i);
+                strikeCnt = checkStrike(ansComList, ansUserList, strikeCnt,i);
             }
         }
         score[0] = ballCnt;
@@ -83,8 +84,9 @@ public class Main {
     //스트라이크가 제대로 안됨..
     private static int checkStrike(List<Integer> ansComList, List<Integer> ansUserList, int strikeCnt, int i ) {
         for(int j = 0; j < 3; j++){
-            if(j != i && ansComList.get(i).equals(ansUserList.get(j))){
+            if(j != i && ansComList.get(i) == ansUserList.get(j)){
                 strikeCnt++;
+                System.out.println("StrikeCnt: " + strikeCnt);
             }
         }
         return strikeCnt;
