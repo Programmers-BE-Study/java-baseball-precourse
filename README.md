@@ -140,6 +140,9 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 
 ## 필요 기능
 ** 게임 진행 객체 : GameManager 클래스 **
+- 게임 진행 기능 (game 메서드)
+- 게임종료여부 확인기능 (done 메서드, boolean IS_GAME_OVER 변수 호출)
+* IS_GAME_OVER 변수 = false로 초기화
 
 문제 생성 기능 (ProblemProvider 클래스)
 - 3자리의 수 생성 및 저장 (questionerAnswer 변수)
@@ -152,15 +155,19 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 - 볼 or 스트라이크 (ANSWER_RESULT_BALL, ANSWER_RESULT_STRIKE 상수)
 - 낫싱 (ANSWER_RESULT_NOTHING)
 - 정답 (ANSWER_RESULT_CORRECT)
-- 답 판단 결과 출력하기
+- 오답/정답 판단하기
+- 오답 시 판단 결과 출력하고, 돌아가기
+- 정답 시 정답 시 처리기능 호출
 
 정답 시 처리 기능 (GameManager 클래스에서 메서드로 구현)
-- 정답 시 정답 문구 출력하기
+- 정답문구 출력하기
 - 게임 재시작 여부 질문 출력하기
 - 게임 재시작 여부 입력받기
-- 게임 진행 메서드 실행하기
+- 게임 재시작 여부 판단하기
+- 게임 재시작 여부 true 일 시 boolean 변수 false (done()이 false를 리턴)
+- 게임 재시작 여부 false 일 시 boolean 변수 true (done()이 true를 리턴)
 
-*** 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
+* 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
+* 3가지 조건 지키기(indentation, 3항연산자x, 메서드가 한가지일만)
 
-	
 
