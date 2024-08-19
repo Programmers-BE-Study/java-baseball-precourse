@@ -1,22 +1,18 @@
 package baseball;
 
 public class GameManager {
-    private final ProblemProvider problemProvider;
-    private final AnswerRequester answerRequester;
-    private final AnswerProcessor answerProcessor;
-    private static final boolean IS_GAME_OVER = false;
+    private final ProblemProvider problemProvider = new ProblemProvider();
+    private final AnswerRequester answerRequester = new AnswerRequester();
+    private final AnswerProcessor answerProcessor = new AnswerProcessor();
+    private boolean isGameOver = false;
+    private String answer;
 
-    public GameManager() {
-        problemProvider = new ProblemProvider();
-        answerRequester = new AnswerRequester();
-        answerProcessor = new AnswerProcessor();
-    }
-
-    public void game() {
+    public void game() throws IllegalArgumentException{
+        answer = problemProvider.generateAnswer();
 
     }
 
     public boolean done() {
-        return IS_GAME_OVER;
+        return isGameOver;
     }
 }

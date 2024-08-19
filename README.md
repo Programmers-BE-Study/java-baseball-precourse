@@ -145,7 +145,7 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 * IS_GAME_OVER 변수 = false로 초기화
 
 문제 생성 기능 (ProblemProvider 클래스)
-- 3자리의 수 생성 및 저장 (questionerAnswer 변수)
+- 3자리의 수 생성 및 게임 진행 객체에 저장 (answer 변수)
 
 제출 답 요구 기능 (AnswerRequester 클래스, requestAnswer 메서드)
 - 답 요구 문구 출력하기
@@ -169,5 +169,7 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 
 * 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
 * 3가지 조건 지키기(indentation, 3항연산자x, 메서드가 한가지일만)
+* 입력은 capm.nextstep.edu.missionutils.Console 의 readLine() 사용
+	
 
 
