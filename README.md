@@ -167,6 +167,10 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 - 게임 재시작 여부 true 일 시 boolean 변수 false (done()이 false를 리턴)
 - 게임 재시작 여부 false 일 시 boolean 변수 true (done()이 true를 리턴)
 
+입력 검사 기능 (InputInspector 클래스)
+- 정답 입력 형식 검사 기능 (inspectAnswerInput 메서드)
+- 게임 재시작 여부 입력 검사 기능 (inspectToReastartInput 메서드)
+
 * 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
 * 3가지 조건 지키기(indentation, 3항연산자x, 메서드가 한가지일만)
 * 입력은 capm.nextstep.edu.missionutils.Console 의 readLine() 사용
