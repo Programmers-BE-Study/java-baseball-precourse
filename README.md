@@ -174,6 +174,6 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 * 잘못된 값 입력시 IllegalArgumentException 발생 후 종료
 * 3가지 조건 지키기(indentation, 3항연산자x, 메서드가 한가지일만)
 * 입력은 capm.nextstep.edu.missionutils.Console 의 readLine() 사용
-	
 
 
+설계와 다소 수정된 부분 있음!
