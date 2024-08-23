@@ -21,49 +21,53 @@ public class AnswerProcessor {
             return sb.toString();
         }
     }
+    private Score score;
 
     public boolean judge(String answer, String userAnswer) {
-        Score score = makeScore(answer, userAnswer);
+        generateNowScore(answer, userAnswer);
         System.out.println(score);
-        return isCorrectAnswer(score);
+        return isCorrectAnswer();
     }
 
-    private Score makeScore(String answer, String userAnswer) {
-        Score score = new Score();
+    private void generateNowScore(String answer, String userAnswer) {
+        score = new Score();
         for (int nowDigits = 0; nowDigits < ProblemProvider.DIGITS; nowDigits++) {
-            if (isStrike(answer, userAnswer, nowDigits)) {
-                score.strike++;
-                continue;
-            }
-            if (isBall(answer, userAnswer, nowDigits)) {
-                score.ball++;
-                continue;
-            }
+            checkNowDigits(answer, userAnswer, nowDigits);
         }
-        if (isNothing(score)) {
-            score.nothing = true;
-        }
-        return score;
+        checkNothing();
     }
-    private boolean isStrike(String answer, String userAnswer, int nowDigits) {
-        if (answer.charAt(nowDigits) == userAnswer.charAt(nowDigits)){
+
+    private void checkNowDigits(String answer, String userAnswer, int nowDigits) {
+        boolean isStrike = checkStrike(answer, userAnswer, nowDigits);
+        if (!isStrike) {
+            checkBall(answer, userAnswer, nowDigits);
+        }
+    }
+
+    private boolean checkStrike(String answer, String userAnswer, int nowDigits) {
+        if (answer.charAt(nowDigits) == userAnswer.charAt(nowDigits)) {
+            score.strike++;
             return true;
-        }
-        return false;
-    }
-    private boolean isBall(String answer, String userAnswer, int nowDigits) {
-        if (answer.contains(String.valueOf(userAnswer.charAt(nowDigits)))){
-            return true;
-        }
-        return false;
-    }
-    private boolean isNothing(Score score) {
-        if (score.strike > 0 || score.ball > 0) {
+        } else {
             return false;
         }
-        return true;
     }
-    private boolean isCorrectAnswer(Score score) {
+
+    private void checkBall(String answer, String userAnswer, int nowDigits) {
+        if (answer.contains(String.valueOf(userAnswer.charAt(nowDigits)))) {
+            score.ball++;
+        }
+    }
+
+    private void checkNothing() {
+        if (score.strike > 0 || score.ball > 0) {
+            score.nothing = false;
+        }else {
+            score.nothing = true;
+        }
+    }
+
+    private boolean isCorrectAnswer() {
         if (score.strike == ProblemProvider.DIGITS) {
             return true;
         }else {

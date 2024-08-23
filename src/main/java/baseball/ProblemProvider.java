@@ -2,7 +2,6 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Random;
 
 public class ProblemProvider {
     public static final int DIGITS = 3;
@@ -10,8 +9,7 @@ public class ProblemProvider {
     public String generateAnswer() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < DIGITS; i++) {
-            int newN = generateNotDuplicatedNumber(sb.toString());
-            sb.append(newN);
+            sb.append(generateNotDuplicatedNumber(sb.toString()));
         }
         return sb.toString();
     }
