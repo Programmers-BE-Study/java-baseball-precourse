@@ -25,7 +25,7 @@ public class AnswerProcessor {
     public boolean judge(String answer, String userAnswer) {
         Score score = makeScore(answer, userAnswer);
         System.out.println(score);
-        return isAnswer(score);
+        return isCorrectAnswer(score);
     }
 
     private Score makeScore(String answer, String userAnswer) {
@@ -63,7 +63,7 @@ public class AnswerProcessor {
         }
         return true;
     }
-    private boolean isAnswer(Score score) {
+    private boolean isCorrectAnswer(Score score) {
         if (score.strike == ProblemProvider.DIGITS) {
             return true;
         }else {

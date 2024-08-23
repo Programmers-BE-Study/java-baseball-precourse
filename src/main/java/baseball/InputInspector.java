@@ -19,13 +19,14 @@ public class InputInspector {
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
-
         return input;
     }
 
     public String inspectRestartInput(String input) throws IllegalArgumentException{
-        //1 또는 2 인지
-
-        return null;
+        if (input.equals("1") || input.equals("2")) {
+            return input;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
