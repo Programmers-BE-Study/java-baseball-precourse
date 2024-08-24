@@ -1,19 +1,30 @@
 package baseball.utils.valid;
 
-import baseball.utils.constant.Messages;
+import baseball.utils.constant.Errors;
+
+import java.util.Arrays;
 
 public class PlayerInputValidator implements Validator{
     @Override
     public String validate(String input) {
-        canParse(input).finish();
-        //같은 숫자를 입력한 것도 유효하지 않은 데이터를 입력했다고 해야하나?
+        canParse(input);
+        isDuplicate(input);
         return input;
     }
 
-    private PlayerInputValidator canParse(String input) {
+    private void canParse(String input) {
         if(!input.matches("[1-9]{3}")) {
-            throw new IllegalArgumentException(Messages.PLAYER_NUMBER_LENGTH_NOT_THREE.toString());
+            throw new IllegalArgumentException(Errors.PLAYER_NUMBER_LENGTH_NOT_THREE_MSG.toString());
         }
-        return this;
+    }
+
+    private void isDuplicate(String input) {
+        int count = (int) Arrays.stream(input.split(""))
+                    .distinct()
+                    .count();
+
+        if(input.length() != count) {
+            throw new IllegalArgumentException(Errors.NUMBER_DUPLICATED_MSG.toString());
+        }
     }
 }
