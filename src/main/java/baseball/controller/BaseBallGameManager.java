@@ -7,6 +7,7 @@ import baseball.model.Numbers;
 import baseball.service.BaseBallService;
 import baseball.service.NumberGenerator;
 import baseball.view.Input;
+import baseball.view.Output;
 
 public class BaseBallGameManager implements Runnable {
 
@@ -15,13 +16,15 @@ public class BaseBallGameManager implements Runnable {
   private final BaseBallService baseBallService;
   private final NumberGenerator generator;
   private final Input input;
+  private final Output output;
 
 
   public BaseBallGameManager(BaseBallService baseBallService, NumberGenerator generator,
-      Input input) {
+      Input input, Output output) {
     this.baseBallService = baseBallService;
     this.generator = generator;
     this.input = input;
+    this.output = output;
   }
 
   @Override
@@ -33,6 +36,7 @@ public class BaseBallGameManager implements Runnable {
       Numbers guess = Numbers.fromString(inputString);
 
       BallCount result = baseBallService.compareNumbers(answer, guess);
+      output.printBallCount(result);
     }
 
   }
