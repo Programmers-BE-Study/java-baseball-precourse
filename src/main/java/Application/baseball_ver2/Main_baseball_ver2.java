@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main_baseball_ver2 {
     static List<Integer> ansComList = new ArrayList<>();
     static List<Integer> randLogs = new ArrayList<>();
 
@@ -79,11 +79,7 @@ public class Main {
         }
         return strikeCnt;
     }
-    public static void gameStop(int num){
-        if(num == 2){
 
-        }
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int restart = 1;
