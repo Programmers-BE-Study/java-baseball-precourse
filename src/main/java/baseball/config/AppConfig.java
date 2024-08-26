@@ -11,6 +11,7 @@ public class AppConfig {
         return Singleton.baseballController;
     }
 
+    private AppConfig() {}
     private static class Singleton {
 
         private static final BaseballController baseballController = createController();

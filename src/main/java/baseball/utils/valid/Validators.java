@@ -8,9 +8,7 @@ import java.util.Map;
 
 public class Validators {
 
-    public static Map<ValidatorKey, Validator> getInstance() {
-        return Singleton.VALIDATOR_MAP;
-    }
+    private Validators() {}
 
     public static Validator getValidator(ValidatorKey key) {
         return Singleton.VALIDATOR_MAP.get(key);
