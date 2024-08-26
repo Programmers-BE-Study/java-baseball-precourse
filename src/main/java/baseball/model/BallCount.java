@@ -29,4 +29,8 @@ public class BallCount {
       return ball + "볼 " + strike + "스트라이크";
     }
   }
+
+  public boolean isCorrect() {
+    return this.strike == 3;
+  }
 }

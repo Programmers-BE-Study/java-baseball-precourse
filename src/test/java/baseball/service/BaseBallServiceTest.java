@@ -1,6 +1,8 @@
 package baseball.service;
 
+import static baseball.constant.ErrorMessages.INVALID_CHOICE_PROMPT;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import baseball.model.BallCount;
 import baseball.model.Numbers;
@@ -76,5 +78,39 @@ class BaseBallServiceTest {
     // then
     assertThat(result.getStrike()).isEqualTo(3);
     assertThat(result.getBall()).isEqualTo(0);
+  }
+
+  @DisplayName("isExitChoice 메서드가 올바르게 동작한다.")
+  @Test
+  void isExitChoice_메서드가_올바르게_동작한다() {
+    // given
+    String userChoiceOne = "1";
+    String userChoiceTwo = "2";
+
+    // when
+    boolean exitChoiceOne = baseBallService.isExitChoice(userChoiceOne);
+    boolean exitChoiceTwo = baseBallService.isExitChoice(userChoiceTwo);
+
+    // then
+    assertThat(exitChoiceOne).isFalse();
+    assertThat(exitChoiceTwo).isTrue();
+  }
+
+  @DisplayName("isExitChoice 메서드가 올바르게 동작한다(예외).")
+  @Test
+  void isExitChoice_메서드가_올바르게_동작한다_예외() {
+    // given
+    String userChoiceOne = "a";
+    String userChoiceTwo = "3";
+
+    // when / then
+    assertThatExceptionOfType(IllegalArgumentException.class)
+        .isThrownBy(() -> baseBallService.isExitChoice(userChoiceOne))
+        .withMessageContaining(INVALID_CHOICE_PROMPT);
+
+    assertThatExceptionOfType(IllegalArgumentException.class)
+        .isThrownBy(() -> baseBallService.isExitChoice(userChoiceTwo))
+        .withMessageContaining(INVALID_CHOICE_PROMPT);
+
   }
 }

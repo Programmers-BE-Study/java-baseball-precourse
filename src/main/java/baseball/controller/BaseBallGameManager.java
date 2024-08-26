@@ -1,6 +1,8 @@
 package baseball.controller;
 
+import static baseball.constant.GameMessages.GAME_RESTART_OR_EXIT_PROMPT;
 import static baseball.constant.GameMessages.INPUT_PROMPT;
+import static baseball.constant.GameMessages.SUCCESSFUL_GUESS_MESSAGE;
 
 import baseball.model.BallCount;
 import baseball.model.Numbers;
@@ -37,7 +39,15 @@ public class BaseBallGameManager implements Runnable {
 
       BallCount result = baseBallService.compareNumbers(answer, guess);
       output.printBallCount(result);
-    }
 
+      if (result.isCorrect()) {
+        output.printMessage(SUCCESSFUL_GUESS_MESSAGE);
+        String userChoice = input.readLineWithMessageAndNewline(GAME_RESTART_OR_EXIT_PROMPT);
+        if (baseBallService.isExitChoice(userChoice)) {
+          break;
+        }
+        answer = generator.generateUniqueNumbers(COUNT_OF_NUMBERS);
+      }
+    }
   }
 }

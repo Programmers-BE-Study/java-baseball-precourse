@@ -1,5 +1,7 @@
 package baseball.service;
 
+import static baseball.constant.ErrorMessages.INVALID_CHOICE_PROMPT;
+
 import baseball.model.BallCount;
 import baseball.model.Numbers;
 import java.util.Arrays;
@@ -19,5 +21,16 @@ public class BaseBallService {
     }
 
     return new BallCount(strikes, balls);
+  }
+
+  public boolean isExitChoice(String userChoice) {
+    validateChoice(userChoice);
+    return userChoice.equals("2");
+  }
+
+  private void validateChoice(String userChoice) {
+    if (!userChoice.equals("1") && !userChoice.equals("2")) {
+      throw new IllegalArgumentException(INVALID_CHOICE_PROMPT);
+    }
   }
 }
