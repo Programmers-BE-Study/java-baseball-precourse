@@ -2,5 +2,5 @@ package baseball.view;
 
 public interface Input {
 
-  String input(String s);
+  String readLineWithMessage(String message);
 }

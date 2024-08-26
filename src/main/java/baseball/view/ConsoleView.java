@@ -6,8 +6,8 @@ import camp.nextstep.edu.missionutils.Console;
 public class ConsoleView implements Input, Output{
 
   @Override
-  public String input(String s) {
-    System.out.print(s);
+  public String readLineWithMessage(String message) {
+    System.out.print(message);
     return Console.readLine();
   }
 

@@ -32,7 +32,7 @@ public class BaseBallGameManager implements Runnable {
     Numbers answer = generator.generateUniqueNumbers(COUNT_OF_NUMBERS);
 
     while (true) {
-      String inputString = input.input(INPUT_PROMPT);
+      String inputString = input.readLineWithMessage(INPUT_PROMPT);
       Numbers guess = Numbers.fromString(inputString);
 
       BallCount result = baseBallService.compareNumbers(answer, guess);
